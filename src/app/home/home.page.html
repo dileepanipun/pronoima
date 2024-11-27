@@ -28,7 +28,7 @@
 
     <div class="list-container">
       <ion-list class="ion-padding">
-        <ion-item *ngFor="let item of getFilteredItems()">
+        <ion-item *ngFor="let item of getFilteredItems()" (click)="toggleItem(item)">
           <ion-checkbox slot="start" [(ngModel)]="item.checked"></ion-checkbox>
           <ion-label [class.checked]="item.checked">
             <span>{{item.text | splitParentheses:0}}</span>

@@ -84,4 +84,8 @@ export class HomePage implements OnInit {
     const newTask = {text: taskText, checked: false};
     this.todoItems.push(newTask);
   }
+
+  toggleItem(item: any) {
+    item.checked = !item.checked;
+  }
 }
