@@ -1,20 +1,45 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Blank
+      My Grocery List
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <div class="page-container">
+    <section class="welcome-section">
+      <img class="profile-avatar" src="https://ui-avatars.com/api/?name=John&background=random" alt="John's avatar">
+      <h2>Welcome back, John</h2>
+      <p>Here's your todo list for today</p>
+    </section>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-segment [(ngModel)]="selectedFilter">
+      <ion-segment-button value="all">
+        <ion-label>📋 All</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="pending">
+        <ion-label>⏳ Pending</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="completed">
+        <ion-label>✅ Completed</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <div class="list-container">
+      <ion-list class="ion-padding">
+        <ion-item *ngFor="let item of getFilteredItems()">
+          <ion-checkbox slot="start" [(ngModel)]="item.checked"></ion-checkbox>
+          <ion-label [class.checked]="item.checked">
+            <span>{{item.text | splitParentheses:0}}</span>
+            <span class="parenthetical">{{item.text | splitParentheses:1}}</span>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <ion-button expand="block" class="add-item-button" (click)="openAddTaskModal()">
+      ADD NEW TASK
+    </ion-button>
   </div>
 </ion-content>

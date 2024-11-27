@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add New Task</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Task</ion-label>
+    <ion-input [(ngModel)]="taskText"></ion-input>
+  </ion-item>
+  <ion-button expand="block" (click)="saveTask()">Save</ion-button>
+</ion-content>

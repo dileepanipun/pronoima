@@ -1,27 +1,122 @@
-#container {
+// Modern CSS Reset and Base Styles
+:root {
+  --primary-font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --spacing-unit: 1rem;
+  --border-radius: 12px;
+  --container-width: 90%;
+  --max-width: 800px;
+  --ion-color-primary: #4A9B9B; /* Modern kitchen teal color */
+  --ion-color-primary-rgb: 74, 155, 155; /* RGB values for the teal */
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-shade: #418888; /* Darker shade for hover states */
+  --ion-color-primary-tint: #5ca5a5; /* Lighter tint for active states */
+}
+
+// Main Container
+.page-container {
+  width: var(--container-width);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: calc(var(--spacing-unit) * 2);
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .custom-padding {
+    padding: 16px; /* Adjust the padding value as needed */
+  }
+  
+  @media (min-width: 768px) {
+    padding: calc(var(--spacing-unit) * 3);
+  }
+}
+
+// Welcome Section
+.welcome-section {
   text-align: center;
+  margin-bottom: calc(var(--spacing-unit) * 3);
+  padding: 1.3rem;
+  
+  .profile-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: .8rem auto;
+    display: block;
+  }
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  h2 {
+    font-family: var(--primary-font);
+    font-weight: 600;
+    color: var(--ion-color-dark);
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  p {
+    color: var(--ion-color-medium);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+  }
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+// List Container
+.list-container {
+  background: var(--ion-color-light);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-unit) calc(var(--spacing-unit) * 1.5);
+  margin-bottom: var(--spacing-unit);
+  flex: 1;
+  overflow-y: auto;
+  
+  ion-item {
+    --padding-start: 0.5rem;
+    --inner-padding-end: 0.5rem;
+    --background: transparent;
+    margin-bottom: calc(var(--spacing-unit) / 2);
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    ion-label {
+      margin-left: 1rem;
+      font-family: var(--primary-font);
+      font-size: 0.95rem;
+      letter-spacing: -0.01em;
+    }
+  }
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+// Checked Items
+.checked {
+  text-decoration: line-through;
+  color: var(--ion-color-medium);
+  opacity: 0.7;
+  transition: all 0.2s ease;
 }
 
-#container a {
-  text-decoration: none;
+// Add Item Button
+.add-item-button {
+  margin-top: auto;
+  width: 100%;
+  --border-radius: var(--border-radius);
+  font-family: var(--primary-font);
+  font-weight: 500;
+  height: 48px;
+  position: sticky;
+  bottom: 0;
+}
+
+.bottom-modal {
+  --height: auto;
+  .modal-wrapper {
+    border-radius: 20px 20px 0 0;
+  }
+}
+
+.parenthetical {
+  opacity: 0.5;
+  margin: 0 0 0 0.5rem;
 }

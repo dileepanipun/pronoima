@@ -1,0 +1,380 @@
+{
+  "todoItems": [
+    {
+      "text": "Whole Milk (1 gallon)",
+      "checked": false,
+      "category": "Groceries",
+      "estimatedCost": 4.99,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Sourdough Bread",
+      "checked": false,
+      "category": "Groceries",
+      "estimatedCost": 5.99,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Organic Brown Eggs (dozen)",
+      "checked": false,
+      "category": "Groceries",
+      "estimatedCost": 6.99,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Fresh Bell Peppers (3)",
+      "checked": false,
+      "category": "Groceries",
+      "estimatedCost": 4.50,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Roma Tomatoes (4)",
+      "checked": false,
+      "category": "Groceries",
+      "estimatedCost": 3.99,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Yellow Onions (2 lbs)",
+      "checked": false,
+      "category": "Groceries",
+      "estimatedCost": 2.99,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Garlic Bulbs (2)",
+      "checked": false,
+      "category": "Groceries",
+      "estimatedCost": 1.99,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Ground Black Pepper",
+      "checked": false,
+      "category": "Groceries",
+      "estimatedCost": 4.99,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Sea Salt (16 oz)",
+      "checked": false,
+      "category": "Groceries",
+      "estimatedCost": 3.99,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Extra Virgin Olive Oil",
+      "checked": false,
+      "category": "Groceries",
+      "estimatedCost": 12.99,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Clean bathroom",
+      "checked": false,
+      "category": "Household Chores",
+      "estimatedCost": 0.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Buy cleaning supplies",
+      "checked": false,
+      "category": "Household Supplies",
+      "estimatedCost": 25.99,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Schedule dentist appointment",
+      "checked": false,
+      "category": "Healthcare",
+      "estimatedCost": 150.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Pay electricity bill",
+      "checked": true,
+      "category": "Bills & Payments",
+      "estimatedCost": 100.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Call mom",
+      "checked": false,
+      "category": "Personal Care",
+      "estimatedCost": 0.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Update resume",
+      "checked": false,
+      "category": "Administrative Tasks",
+      "estimatedCost": 0.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Fix leaky faucet",
+      "checked": false,
+      "category": "Maintenance",
+      "estimatedCost": 50.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Vacuum living room",
+      "checked": true,
+      "category": "Household Chores",
+      "estimatedCost": 0.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Take out trash",
+      "checked": false,
+      "category": "Household Chores",
+      "estimatedCost": 0.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Do laundry",
+      "checked": false,
+      "category": "Household Chores",
+      "estimatedCost": 0.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Buy birthday gift for Sarah",
+      "checked": false,
+      "category": "Shopping",
+      "estimatedCost": 20.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Schedule car maintenance",
+      "checked": false,
+      "category": "Maintenance",
+      "estimatedCost": 100.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Water plants",
+      "checked": true,
+      "category": "Household Chores",
+      "estimatedCost": 0.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Organize closet",
+      "checked": false,
+      "category": "Household Chores",
+      "estimatedCost": 0.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Return library books",
+      "checked": false,
+      "category": "Administrative Tasks",
+      "estimatedCost": 0.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Buy dog food",
+      "checked": true,
+      "category": "Pet Care",
+      "estimatedCost": 25.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Schedule haircut",
+      "checked": false,
+      "category": "Personal Care",
+      "estimatedCost": 50.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Clean refrigerator",
+      "checked": false,
+      "category": "Household Chores",
+      "estimatedCost": 0.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Back up computer files",
+      "checked": false,
+      "category": "Administrative Tasks",
+      "estimatedCost": 0.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Buy groceries for dinner",
+      "checked": false,
+      "category": "Groceries",
+      "estimatedCost": 50.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Fix broken shelf",
+      "checked": false,
+      "category": "Maintenance",
+      "estimatedCost": 20.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Update phone apps",
+      "checked": true,
+      "category": "Administrative Tasks",
+      "estimatedCost": 0.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Clean windows",
+      "checked": false,
+      "category": "Household Chores",
+      "estimatedCost": 0.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Buy new running shoes",
+      "checked": false,
+      "category": "Shopping",
+      "estimatedCost": 80.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Schedule vet appointment",
+      "checked": false,
+      "category": "Pet Care",
+      "estimatedCost": 100.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Renew gym membership",
+      "checked": true,
+      "category": "Entertainment",
+      "estimatedCost": 50.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Clean garage",
+      "checked": false,
+      "category": "Household Chores",
+      "estimatedCost": 0.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Buy office supplies",
+      "checked": false,
+      "category": "Shopping",
+      "estimatedCost": 50.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Update password list",
+      "checked": false,
+      "category": "Administrative Tasks",
+      "estimatedCost": 0.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Mail package",
+      "checked": true,
+      "category": "Administrative Tasks",
+      "estimatedCost": 10.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Buy birthday card",
+      "checked": false,
+      "category": "Shopping",
+      "estimatedCost": 5.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Schedule eye exam",
+      "checked": false,
+      "category": "Healthcare",
+      "estimatedCost": 100.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Clean gutters",
+      "checked": false,
+      "category": "Maintenance",
+      "estimatedCost": 100.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Buy winter clothes",
+      "checked": false,
+      "category": "Shopping",
+      "estimatedCost": 100.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Update emergency contacts",
+      "checked": true,
+      "category": "Administrative Tasks",
+      "estimatedCost": 0.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Clean coffee maker",
+      "checked": false,
+      "category": "Household Chores",
+      "estimatedCost": 0.00,
+      "hidden": false,
+      "removed": false
+    },
+    {
+      "text": "Buy new pillows",
+      "checked": false,
+      "category": "Shopping",
+      "estimatedCost": 30.00,
+      "hidden": false,
+      "removed": false
+    }
+  ]
+} 
