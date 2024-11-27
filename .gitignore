@@ -68,3 +68,22 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Dependencies
+package-lock.json
+yarn.lock
+.pnpm-lock.yaml
+
+# Testing
+/coverage
+*.lcov
+.nyc_output
+
+# Build output
+/build
+*.tsbuildinfo
