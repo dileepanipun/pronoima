@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {CommonModule, NgForOf} from "@angular/common";
 import {HttpClient, HttpClientModule} from '@angular/common/http';
-import {IonicModule, ModalController} from '@ionic/angular';
+import {IonicModule, ModalController, AlertController} from '@ionic/angular';
 import {AddTaskModalComponent} from '../add-task-modal/add-task-modal.component';
 import {SplitParenthesesPipe} from "../pipes/split-parentheses.pipe";
 import { GroceryItem, GroceryData } from '../../types/GroceryTypes';
@@ -11,7 +11,12 @@ import {
   addCircleOutline,
   createOutline,
   trashOutline,
-  // Add any other icons you're using in your template
+  listOutline,
+  cartOutline,
+  checkmarkCircleOutline,
+  eyeOffOutline,
+  eyeOutline,
+  refreshOutline,
 } from 'ionicons/icons';
 
 @Component({
@@ -29,17 +34,21 @@ import {
   ]
 })
 export class HomePage implements OnInit {
-  userName = 'John';
   todoItems: GroceryItem[] = [];
   selectedFilter: string = 'all';
 
-  constructor(private http: HttpClient, private modalController: ModalController) {
+  constructor(private http: HttpClient, private modalController: ModalController, private alertController: AlertController) {
     // Register the icons
     addIcons({ 
       addCircleOutline,
       createOutline,
       trashOutline,
-      // Add any other icons you're using
+      listOutline,
+      cartOutline,
+      checkmarkCircleOutline,
+      eyeOffOutline,
+      eyeOutline,
+      refreshOutline,
     });
   }
 
@@ -67,7 +76,10 @@ export class HomePage implements OnInit {
               category: 'dairy',
               estimatedCost: 4.99,
               hidden: false,
-              removed: false
+              removed: false,
+              addedDate: new Date().toISOString(),
+              unit: 'gallon',
+              store: 'Grocery Store'
             },
             {
               title: 'Buy bread',
@@ -76,7 +88,10 @@ export class HomePage implements OnInit {
               category: 'bakery',
               estimatedCost: 3.99,
               hidden: false,
-              removed: false
+              removed: false,
+              addedDate: new Date().toISOString(),
+              unit: 'loaf',
+              store: 'Bakery'
             }
           ];
         }
@@ -84,15 +99,17 @@ export class HomePage implements OnInit {
   }
 
   getFilteredItems() {
-    const visibleItems = this.todoItems.filter(item => !item.hidden && !item.removed);
-    
     switch (this.selectedFilter) {
       case 'pending':
-        return visibleItems.filter(item => !item.checked);
+        return this.todoItems.filter(item => !item.checked && !item.hidden && !item.removed);
       case 'completed':
-        return visibleItems.filter(item => item.checked);
+        return this.todoItems.filter(item => item.checked && !item.hidden && !item.removed);
+      case 'hidden':
+        return this.todoItems.filter(item => item.hidden && !item.removed);
+      case 'removed':
+        return this.todoItems.filter(item => item.removed);
       default:
-        return visibleItems;
+        return this.todoItems.filter(item => !item.hidden && !item.removed);
     }
   }
 
@@ -121,7 +138,10 @@ export class HomePage implements OnInit {
       category: '',
       estimatedCost: 0,
       hidden: false,
-      removed: false
+      removed: false,
+      addedDate: new Date().toISOString(),
+      unit: '',
+      store: ''
     };
     this.todoItems.push(newTask);
   }
@@ -134,10 +154,93 @@ export class HomePage implements OnInit {
     console.log('Edit item:', item);
   }
 
-  removeItem(item: any) {
-    const index = this.todoItems.indexOf(item);
-    if (index > -1) {
-      this.todoItems.splice(index, 1);
+  toggleHideItem(item: GroceryItem) {
+    item.hidden = !item.hidden;
+  }
+
+  async removeItem(item: GroceryItem) {
+    const alert = await this.alertController.create({
+      header: 'Confirm Deletion',
+      message: 'Are you sure you want to remove this item?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary'
+        },
+        {
+          text: 'Delete',
+          role: 'destructive',
+          handler: () => {
+            item.removed = true; // Instead of actually removing, mark as removed
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  getPriorityColor(priority: string): string {
+    switch (priority) {
+      case 'high':
+        return 'danger';
+      case 'medium':
+        return 'warning';
+      case 'low':
+        return 'success';
+      default:
+        return 'medium';
     }
+  }
+
+  isActionableTab(tab: string): boolean {
+    return ['all', 'pending', 'completed'].includes(tab);
+  }
+
+  async restoreItem(item: GroceryItem) {
+    const alert = await this.alertController.create({
+      header: 'Confirm Restore',
+      message: 'Are you sure you want to restore this item to your list?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary'
+        },
+        {
+          text: 'Restore',
+          handler: () => {
+            item.removed = false;
+            // Optionally show a toast or notification
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  async unhideItem(item: GroceryItem) {
+    const alert = await this.alertController.create({
+      header: 'Confirm Unhide',
+      message: 'Are you sure you want to make this item visible in your list?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary'
+        },
+        {
+          text: 'Unhide',
+          handler: () => {
+            item.hidden = false;
+            // Optionally show a toast or notification
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 }

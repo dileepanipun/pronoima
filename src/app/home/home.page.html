@@ -6,48 +6,77 @@
 
 <ion-content>
   <div class="page-container">
-    <section class="welcome-section">
-      <img
-        alt="John's avatar"
-        class="profile-avatar"
-        src="https://ui-avatars.com/api/?name=John&background=random"
-      />
-      <h2>Welcome back, John</h2>
-      <p>Here's your todo list for today</p>
-    </section>
-
     <ion-segment [(ngModel)]="selectedFilter">
       <ion-segment-button value="all">
-        <ion-label>📋 All</ion-label>
+        <ion-label>All</ion-label>
       </ion-segment-button>
       <ion-segment-button value="pending">
-        <ion-label>⏳ Pending</ion-label>
+        <ion-label>Pending</ion-label>
       </ion-segment-button>
       <ion-segment-button value="completed">
-        <ion-label>✅ Completed</ion-label>
+        <ion-label>Completed</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="hidden">
+        <ion-label>Hidden</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="removed">
+        <ion-label>Deleted</ion-label>
       </ion-segment-button>
     </ion-segment>
 
     <div class="list-container">
-      <ion-list class="ion-padding">
-        <ion-item
-          (click)="toggleItem(item)"
-          *ngFor="let item of getFilteredItems()"
-        >
-          <ion-checkbox [(ngModel)]="item.checked" slot="start"></ion-checkbox>
-          <ion-label [class.checked]="item.checked">
-            <span>{{ item.title }}</span>
-            <span class="parenthetical">{{ item.title }}</span>
-          </ion-label>
-          <ion-buttons (click)="$event.stopPropagation()" slot="end">
-            <ion-button (click)="editItem(item)" color="primary">
-              <ion-icon name="create-outline"></ion-icon>
-            </ion-button>
-            <ion-button (click)="removeItem(item)" color="danger">
-              <ion-icon name="trash-outline"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-        </ion-item>
+      <ion-list class="modern-list">
+        @for (item of getFilteredItems(); track item) {
+          <ion-item class="grocery-item" [class.completed]="item.checked">
+            <div class="item-content">
+              <div class="item-main-row">
+                @if (isActionableTab(selectedFilter)) {
+                  <ion-checkbox 
+                    [(ngModel)]="item.checked" 
+                    slot="start"
+                    class="modern-checkbox"
+                  ></ion-checkbox>
+                }
+                
+                <div class="item-info" [class.no-checkbox]="!isActionableTab(selectedFilter)">
+                  <div class="title-row">
+                    <span [class.strike-through]="item.checked">{{ item.title }}</span>
+                  </div>
+                  <div class="amount-price">
+                    <span class="amount">{{ item.amount }}</span>
+                    <span class="price">${{ item.estimatedCost }}</span>
+                  </div>
+                </div>
+
+                <div class="action-buttons">
+                  @if (selectedFilter === 'hidden') {
+                    <ion-button fill="clear" (click)="unhideItem(item)">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </ion-button>
+                  } @else if (selectedFilter === 'removed') {
+                    <ion-button fill="clear" (click)="restoreItem(item)">
+                      <ion-icon name="refresh-outline"></ion-icon>
+                    </ion-button>
+                  } @else {
+                    <ion-button fill="clear" (click)="toggleHideItem(item)">
+                      <ion-icon name="eye-off-outline"></ion-icon>
+                    </ion-button>
+                    <ion-button fill="clear" (click)="editItem(item)">
+                      <ion-icon name="create-outline"></ion-icon>
+                    </ion-button>
+                    <ion-button fill="clear" (click)="removeItem(item)">
+                      <ion-icon name="trash-outline"></ion-icon>
+                    </ion-button>
+                  }
+                </div>
+              </div>
+            </div>
+          </ion-item>
+        } @empty {
+          <ion-item>
+            <ion-label>No items in your grocery list</ion-label>
+          </ion-item>
+        }
       </ion-list>
     </div>
 
@@ -56,7 +85,7 @@
       class="add-item-button"
       expand="block"
     >
-      ADD NEW TASK
+      ADD NEW ITEM
     </ion-button>
   </div>
 </ion-content>
