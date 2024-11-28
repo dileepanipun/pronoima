@@ -120,3 +120,16 @@
   opacity: 0.5;
   margin: 0 0 0 0.5rem;
 }
+
+ion-header {
+  position: absolute;
+  
+  ion-toolbar {
+    --background: transparent;
+    --border-width: 0;
+  }
+}
+
+ion-content {
+  --padding-top: 20px; // Add some padding to prevent content from going under status bar
+}
