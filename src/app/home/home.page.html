@@ -1,15 +1,17 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
-    <ion-title>
-      My Grocery List
-    </ion-title>
+    <ion-title> My Grocery List </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="page-container">
     <section class="welcome-section">
-      <img class="profile-avatar" src="https://ui-avatars.com/api/?name=John&background=random" alt="John's avatar">
+      <img
+        class="profile-avatar"
+        src="https://ui-avatars.com/api/?name=John&background=random"
+        alt="John's avatar"
+      />
       <h2>Welcome back, John</h2>
       <p>Here's your todo list for today</p>
     </section>
@@ -28,17 +30,24 @@
 
     <div class="list-container">
       <ion-list class="ion-padding">
-        <ion-item *ngFor="let item of getFilteredItems()" (click)="toggleItem(item)">
+        <ion-item
+          *ngFor="let item of getFilteredItems()"
+          (click)="toggleItem(item)"
+        >
           <ion-checkbox slot="start" [(ngModel)]="item.checked"></ion-checkbox>
           <ion-label [class.checked]="item.checked">
-            <span>{{item.text | splitParentheses:0}}</span>
-            <span class="parenthetical">{{item.text | splitParentheses:1}}</span>
+            <span>{{item.title}}</span>
+            <span class="parenthetical">{{ item.title }}</span>
           </ion-label>
         </ion-item>
       </ion-list>
     </div>
 
-    <ion-button expand="block" class="add-item-button" (click)="openAddTaskModal()">
+    <ion-button
+      expand="block"
+      class="add-item-button"
+      (click)="openAddTaskModal()"
+    >
       ADD NEW TASK
     </ion-button>
   </div>

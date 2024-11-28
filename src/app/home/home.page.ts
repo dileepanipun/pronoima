@@ -5,6 +5,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {IonicModule, ModalController} from '@ionic/angular';
 import {AddTaskModalComponent} from '../add-task-modal/add-task-modal.component';
 import {SplitParenthesesPipe} from "../pipes/split-parentheses.pipe";
+import { GroceryItem, GroceryData } from '../../types/GroceryTypes';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +23,7 @@ import {SplitParenthesesPipe} from "../pipes/split-parentheses.pipe";
 })
 export class HomePage implements OnInit {
   userName = 'John';
-  todoItems: Array<{ text: string, checked: boolean }> = [];
+  todoItems: GroceryItem[] = [];
   selectedFilter: string = 'all';
 
   constructor(private http: HttpClient, private modalController: ModalController) {
@@ -33,11 +34,11 @@ export class HomePage implements OnInit {
   }
 
   private loadTodoItems() {
-    this.http.get<{ todoItems: Array<{ text: string, checked: boolean }> }>('/assets/data/todo-items.json')
+    this.http.get<GroceryData>('/assets/data/todo-items.json')
       .subscribe({
         next: (data) => {
           console.log('Successfully loaded todo items:', data);
-          this.todoItems = data.todoItems;
+          this.todoItems = data.groceryList;
         },
         error: (error) => {
           console.error('Error loading todo items:', error.status, error.message);
@@ -45,21 +46,39 @@ export class HomePage implements OnInit {
             console.error('File not found - please check if the path is correct');
           }
           this.todoItems = [
-            {text: 'Buy milk', checked: false},
-            {text: 'Buy bread', checked: false}
+            {
+              title: 'Buy milk',
+              amount: '1 gallon',
+              checked: false,
+              category: 'dairy',
+              estimatedCost: 4.99,
+              hidden: false,
+              removed: false
+            },
+            {
+              title: 'Buy bread',
+              amount: '1 loaf',
+              checked: false,
+              category: 'bakery',
+              estimatedCost: 3.99,
+              hidden: false,
+              removed: false
+            }
           ];
         }
       });
   }
 
   getFilteredItems() {
+    const visibleItems = this.todoItems.filter(item => !item.hidden && !item.removed);
+    
     switch (this.selectedFilter) {
       case 'pending':
-        return this.todoItems.filter(item => !item.checked);
+        return visibleItems.filter(item => !item.checked);
       case 'completed':
-        return this.todoItems.filter(item => item.checked);
+        return visibleItems.filter(item => item.checked);
       default:
-        return this.todoItems;
+        return visibleItems;
     }
   }
 
@@ -81,11 +100,19 @@ export class HomePage implements OnInit {
   }
 
   addNewTask(taskText: string) {
-    const newTask = {text: taskText, checked: false};
+    const newTask: GroceryItem = {
+      title: taskText,
+      amount: '',
+      checked: false,
+      category: '',
+      estimatedCost: 0,
+      hidden: false,
+      removed: false
+    };
     this.todoItems.push(newTask);
   }
 
-  toggleItem(item: any) {
+  toggleItem(item: GroceryItem) {
     item.checked = !item.checked;
   }
 }
