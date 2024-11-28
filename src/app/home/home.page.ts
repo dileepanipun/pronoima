@@ -6,6 +6,13 @@ import {IonicModule, ModalController} from '@ionic/angular';
 import {AddTaskModalComponent} from '../add-task-modal/add-task-modal.component';
 import {SplitParenthesesPipe} from "../pipes/split-parentheses.pipe";
 import { GroceryItem, GroceryData } from '../../types/GroceryTypes';
+import { addIcons } from 'ionicons';
+import { 
+  addCircleOutline,
+  createOutline,
+  trashOutline,
+  // Add any other icons you're using in your template
+} from 'ionicons/icons';
 
 @Component({
   selector: 'app-home',
@@ -27,6 +34,13 @@ export class HomePage implements OnInit {
   selectedFilter: string = 'all';
 
   constructor(private http: HttpClient, private modalController: ModalController) {
+    // Register the icons
+    addIcons({ 
+      addCircleOutline,
+      createOutline,
+      trashOutline,
+      // Add any other icons you're using
+    });
   }
 
   ngOnInit() {
@@ -114,5 +128,16 @@ export class HomePage implements OnInit {
 
   toggleItem(item: GroceryItem) {
     item.checked = !item.checked;
+  }
+
+  editItem(item: any) {
+    console.log('Edit item:', item);
+  }
+
+  removeItem(item: any) {
+    const index = this.todoItems.indexOf(item);
+    if (index > -1) {
+      this.todoItems.splice(index, 1);
+    }
   }
 }

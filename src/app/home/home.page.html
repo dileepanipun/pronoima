@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
-    <ion-title> My Grocery List </ion-title>
+    <ion-title> My Grocery List</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -8,9 +8,9 @@
   <div class="page-container">
     <section class="welcome-section">
       <img
+        alt="John's avatar"
         class="profile-avatar"
         src="https://ui-avatars.com/api/?name=John&background=random"
-        alt="John's avatar"
       />
       <h2>Welcome back, John</h2>
       <p>Here's your todo list for today</p>
@@ -31,22 +31,30 @@
     <div class="list-container">
       <ion-list class="ion-padding">
         <ion-item
-          *ngFor="let item of getFilteredItems()"
           (click)="toggleItem(item)"
+          *ngFor="let item of getFilteredItems()"
         >
-          <ion-checkbox slot="start" [(ngModel)]="item.checked"></ion-checkbox>
+          <ion-checkbox [(ngModel)]="item.checked" slot="start"></ion-checkbox>
           <ion-label [class.checked]="item.checked">
-            <span>{{item.title}}</span>
+            <span>{{ item.title }}</span>
             <span class="parenthetical">{{ item.title }}</span>
           </ion-label>
+          <ion-buttons (click)="$event.stopPropagation()" slot="end">
+            <ion-button (click)="editItem(item)" color="primary">
+              <ion-icon name="create-outline"></ion-icon>
+            </ion-button>
+            <ion-button (click)="removeItem(item)" color="danger">
+              <ion-icon name="trash-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
         </ion-item>
       </ion-list>
     </div>
 
     <ion-button
-      expand="block"
-      class="add-item-button"
       (click)="openAddTaskModal()"
+      class="add-item-button"
+      expand="block"
     >
       ADD NEW TASK
     </ion-button>
