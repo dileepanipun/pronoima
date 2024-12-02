@@ -1,0 +1,15 @@
+.grocery-item {
+  --padding-start: 1rem;
+  --padding-end: 1rem;
+  
+  ion-label {
+    &.completed {
+      text-decoration: line-through;
+      color: var(--ion-color-medium);
+    }
+  }
+
+  ion-button {
+    margin: 0;
+  }
+}

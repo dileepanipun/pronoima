@@ -1,0 +1,26 @@
+<ion-item class="grocery-item">
+  <div class="item-status">
+    <ion-checkbox slot="start" 
+                  [checked]="isChecked" 
+                  (ionChange)="onCheckboxChange($event)">
+    </ion-checkbox>
+  </div>
+  
+  <div class="item-content">
+    <ion-label [class.completed]="isChecked">
+      Whole Milk
+    </ion-label>
+    <div class="item-info">
+      <ion-label>$23.00</ion-label>
+      <ion-label>One Gallon</ion-label>
+    </div>
+  </div>
+  <div class="item-actions">
+    <ion-button slot="end" 
+              fill="clear" 
+              color="danger"
+              (click)="onDelete()">
+      <ion-icon name="trash-outline"></ion-icon>
+    </ion-button>
+  </div>
+</ion-item>

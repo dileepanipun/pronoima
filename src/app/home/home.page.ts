@@ -18,6 +18,7 @@ import {
   eyeOutline,
   refreshOutline,
 } from 'ionicons/icons';
+import {GroceryListItemComponent} from "../features/components/grocery-list-item/grocery-list-item.component";
 
 @Component({
   selector: 'app-home',
@@ -30,7 +31,8 @@ import {
     FormsModule,
     NgForOf,
     HttpClientModule,
-    SplitParenthesesPipe
+    SplitParenthesesPipe,
+    GroceryListItemComponent
   ]
 })
 export class HomePage implements OnInit {

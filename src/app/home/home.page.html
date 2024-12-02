@@ -5,6 +5,7 @@
 </ion-header>
 
 <ion-content>
+  <app-grocery-list-item></app-grocery-list-item>
   <div class="page-container">
     <ion-segment [(ngModel)]="selectedFilter">
       <ion-segment-button value="all">
@@ -31,13 +32,13 @@
             <div class="item-content">
               <div class="item-main-row">
                 @if (isActionableTab(selectedFilter)) {
-                  <ion-checkbox 
-                    [(ngModel)]="item.checked" 
+                  <ion-checkbox
+                    [(ngModel)]="item.checked"
                     slot="start"
                     class="modern-checkbox"
                   ></ion-checkbox>
                 }
-                
+
                 <div class="item-info" [class.no-checkbox]="!isActionableTab(selectedFilter)">
                   <div class="title-row">
                     <span [class.strike-through]="item.checked">{{ item.title }}</span>
