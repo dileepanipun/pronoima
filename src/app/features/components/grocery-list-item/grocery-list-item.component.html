@@ -3,7 +3,11 @@
   <!-- status indicator check mark -->
   <div class="item-status">
     <div class="action-btn checkbox" [class.is-checked]="isChecked">
-      <ion-checkbox hidden [checked]="isChecked" (ionChange)="onCheckboxChange($event)"></ion-checkbox>
+      <ion-checkbox #checkbox class="checkbox-input" [checked]="isChecked" (ionChange)="onCheckboxChange($event)">
+      </ion-checkbox>
+      <ion-label class="checkbox-label" [attr.for]="checkbox">
+        <ion-icon name="checkmark-sharp"></ion-icon>
+      </ion-label>
     </div>
   </div>
   <!-- item content -->
