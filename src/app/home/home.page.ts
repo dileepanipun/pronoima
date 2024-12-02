@@ -3,11 +3,11 @@ import {FormsModule} from "@angular/forms";
 import {CommonModule, NgForOf} from "@angular/common";
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {IonicModule, ModalController, AlertController} from '@ionic/angular';
-import {AddTaskModalComponent} from '../add-task-modal/add-task-modal.component';
+import {AddTaskModalComponent} from '../features/components/add-task-modal/add-task-modal.component';
 import {SplitParenthesesPipe} from "../pipes/split-parentheses.pipe";
 import { GroceryItem, GroceryData } from '../../types/GroceryTypes';
 import { addIcons } from 'ionicons';
-import { 
+import {
   addCircleOutline,
   createOutline,
   trashOutline,
@@ -39,7 +39,7 @@ export class HomePage implements OnInit {
 
   constructor(private http: HttpClient, private modalController: ModalController, private alertController: AlertController) {
     // Register the icons
-    addIcons({ 
+    addIcons({
       addCircleOutline,
       createOutline,
       trashOutline,
