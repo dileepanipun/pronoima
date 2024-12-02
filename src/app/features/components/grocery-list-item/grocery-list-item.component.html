@@ -1,26 +1,36 @@
-<ion-item class="grocery-item">
+<!-- grocery list item component -->
+<ion-item class="grocery-item" [class.completed]="isChecked">
+  <!-- status indicator check mark -->
   <div class="item-status">
-    <ion-checkbox slot="start" 
-                  [checked]="isChecked" 
-                  (ionChange)="onCheckboxChange($event)">
-    </ion-checkbox>
+    <div class="action-btn checkbox" [class.is-checked]="isChecked">
+      <ion-checkbox hidden [checked]="isChecked" (ionChange)="onCheckboxChange($event)"></ion-checkbox>
+    </div>
   </div>
-  
+  <!-- item content -->
   <div class="item-content">
-    <ion-label [class.completed]="isChecked">
-      Whole Milk
-    </ion-label>
+    <!-- item name -->
+    <ion-label [class.completed]="isChecked">Whole Milk</ion-label>
+    <!-- item info -->
     <div class="item-info">
+      <!-- item price -->
       <ion-label>$23.00</ion-label>
+      <!-- item quantity -->
       <ion-label>One Gallon</ion-label>
     </div>
   </div>
+  <!-- item actions -->
   <div class="item-actions">
-    <ion-button slot="end" 
-              fill="clear" 
-              color="danger"
-              (click)="onDelete()">
+    <!-- delete button -->
+    <ion-button slot="end" fill="clear" color="danger" (click)="onDelete()">
       <ion-icon name="trash-outline"></ion-icon>
+    </ion-button>
+    <!-- edit button -->
+    <ion-button slot="end" fill="clear" color="primary">
+      <ion-icon name="create-outline"></ion-icon>
+    </ion-button> 
+    <!-- change list button -->
+    <ion-button slot="end" fill="clear" color="secondary">
+      <ion-icon name="list-outline"></ion-icon>
     </ion-button>
   </div>
 </ion-item>
