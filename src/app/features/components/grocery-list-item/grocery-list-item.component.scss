@@ -63,8 +63,7 @@ ion-item.grocery-item {
         height: #{$action-btn-size};
         @include display-flexbox($direction: row, $justify: center, $align: center);
         
-        ion-icon {
-          font-size: 1.5rem;
+        i-lucide {
           color: #f2f2f2;
         }
       }
@@ -100,13 +99,12 @@ ion-item.grocery-item {
 
     button.action-btn {
       background-color: #f2f2f210;
-
       width: #{$action-btn-size};
       height: #{$action-btn-size};
       border-radius: 50%;
+      @include display-flexbox($direction: row, $justify: center, $align: center);
 
-      ion-icon {
-        font-size: 1.3rem;
+      i-lucide {
         color: #f2f2f2;
       }
     }
