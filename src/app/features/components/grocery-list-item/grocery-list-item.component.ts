@@ -12,11 +12,20 @@ import { GroceryItem } from 'src/types/GroceryTypes';
   imports: [IonicModule, CommonModule, LucideAngularModule]
 })
 export class GroceryListItemComponent {
-  @Input() item!: GroceryItem;
-  @Output() itemDeleted = new EventEmitter<string>();
   
+  // icons
   readonly starIcon = Star;
   readonly editIcon = Edit;
   readonly trashIcon = Trash2;
   readonly checkIcon = Check;
+
+  // item data
+  @Input() item!: GroceryItem;
+
+  // will controll element's edit mode visibility
+  @Input() isEditeModeEnabled: boolean = false;
+
+  // will emit item deleted event
+  @Output() itemDeleted = new EventEmitter<string>();
+  
 }

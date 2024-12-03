@@ -21,18 +21,20 @@
     </div>
   </div>
   <!-- item actions -->
-  <div class="item-actions">
+  @if (isEditeModeEnabled) {
+  <div class="item-actions" >
     <!-- change list button -->
-    <button type="button" title="Change List" class="action-btn" slot="end" fill="clear" color="secondary">
+    <button type="button" title="Change List" class="action-btn" slot="end">
       <i-lucide [name]="starIcon" size="20"></i-lucide>
     </button>
     <!-- edit button -->
-    <button type="button" title="Edit" class="action-btn" slot="end" fill="clear" color="primary">
+    <button type="button" title="Edit" class="action-btn" slot="end">
       <i-lucide [name]="editIcon" size="20"></i-lucide>
     </button>
     <!-- delete button -->
-    <button type="button" title="Delete" class="action-btn remove-item" slot="end" fill="clear" color="danger">
-      <i-lucide [name]="trashIcon" size="20"></i-lucide>
-    </button>
-  </div>
+    <button type="button" title="Delete" class="action-btn remove-item" slot="end">
+        <i-lucide [name]="trashIcon" size="20"></i-lucide>
+      </button>
+    </div>
+  }
 </ion-item>
