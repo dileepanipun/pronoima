@@ -4,8 +4,8 @@ import {CommonModule, NgForOf} from "@angular/common";
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {IonicModule, ModalController, AlertController} from '@ionic/angular';
 import {AddTaskModalComponent} from '../features/components/add-task-modal/add-task-modal.component';
-import {SplitParenthesesPipe} from "../pipes/split-parentheses.pipe";
-import { GroceryItem, GroceryData } from '../../types/GroceryTypes';
+import {SplitParenthesesPipe} from "../core/pipes/split-parentheses.pipe";
+import { GroceryItem, GroceryData } from '../core/models/GroceryItem';
 import { addIcons } from 'ionicons';
 import {
   addCircleOutline,

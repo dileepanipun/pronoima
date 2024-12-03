@@ -1,20 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { Component } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
+import { GroceryItem } from '../../../core/models/GroceryItem';
+import { GroceryListViewComponent } from '../../components/grocery-list-view/grocery-list-view.component';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
+  templateUrl: 'home.page.html',
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonicModule, GroceryListViewComponent]
 })
-export class HomePage implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class HomePage {
+  groceryItems: GroceryItem[] = [];
 }

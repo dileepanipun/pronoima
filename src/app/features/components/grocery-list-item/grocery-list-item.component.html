@@ -11,18 +11,20 @@
   <!-- item content -->
   <div class="item-content">
     <!-- item name -->
-    <ion-label class="item-name">{{item.title}}</ion-label>
+    <ion-label class="item-name">{{ item.title }}</ion-label>
     <!-- item info -->
     <div class="item-info">
       <!-- item price -->
-      <ion-label>${{item.estimatedCost}}</ion-label>
+      <ion-label>$ {{ item.estimatedCost.toFixed(2) }}</ion-label>
+      <!-- item separator -->
+      <div class="item-separator"></div>
       <!-- item quantity -->
-      <ion-label>{{item.amount}}</ion-label>
+      <ion-label>{{ item.amount }}</ion-label>
     </div>
   </div>
   <!-- item actions -->
   @if (isEditeModeEnabled) {
-  <div class="item-actions" >
+  <div class="item-actions">
     <!-- change list button -->
     <button type="button" title="Change List" class="action-btn" slot="end">
       <i-lucide [name]="starIcon" size="20"></i-lucide>
@@ -32,9 +34,14 @@
       <i-lucide [name]="editIcon" size="20"></i-lucide>
     </button>
     <!-- delete button -->
-    <button type="button" title="Delete" class="action-btn remove-item" slot="end">
-        <i-lucide [name]="trashIcon" size="20"></i-lucide>
-      </button>
-    </div>
+    <button
+      type="button"
+      title="Delete"
+      class="action-btn remove-item"
+      slot="end"
+    >
+      <i-lucide [name]="trashIcon" size="20"></i-lucide>
+    </button>
+  </div>
   }
 </ion-item>
