@@ -17,6 +17,8 @@ import {
   eyeOffOutline,
   eyeOutline,
   refreshOutline,
+  starOutline,
+  checkmarkSharp
 } from 'ionicons/icons';
 import {GroceryListItemComponent} from "../features/components/grocery-list-item/grocery-list-item.component";
 
@@ -51,6 +53,8 @@ export class HomePage implements OnInit {
       eyeOffOutline,
       eyeOutline,
       refreshOutline,
+      starOutline,
+      checkmarkSharp
     });
   }
 

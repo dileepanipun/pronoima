@@ -1,11 +1,9 @@
 <!-- grocery list item component -->
-<ion-item class="grocery-item" [class.completed]="isChecked">
+<ion-item class="grocery-item">
   <!-- status indicator check mark -->
   <div class="item-status">
-    <div class="action-btn checkbox" [class.is-checked]="isChecked">
-      <ion-checkbox #checkbox class="checkbox-input" [checked]="isChecked" (ionChange)="onCheckboxChange($event)">
-      </ion-checkbox>
-      <ion-label class="checkbox-label" [attr.for]="checkbox">
+    <div class="action-btn checkbox">
+      <ion-label class="checkbox-label">
         <ion-icon name="checkmark-sharp"></ion-icon>
       </ion-label>
     </div>
@@ -13,7 +11,7 @@
   <!-- item content -->
   <div class="item-content">
     <!-- item name -->
-    <ion-label [class.completed]="isChecked">Whole Milk</ion-label>
+    <ion-label class="item-name">Whole Milk</ion-label>
     <!-- item info -->
     <div class="item-info">
       <!-- item price -->
@@ -24,17 +22,17 @@
   </div>
   <!-- item actions -->
   <div class="item-actions">
-    <!-- delete button -->
-    <ion-button slot="end" fill="clear" color="danger" (click)="onDelete()">
-      <ion-icon name="trash-outline"></ion-icon>
-    </ion-button>
-    <!-- edit button -->
-    <ion-button slot="end" fill="clear" color="primary">
-      <ion-icon name="create-outline"></ion-icon>
-    </ion-button> 
     <!-- change list button -->
-    <ion-button slot="end" fill="clear" color="secondary">
-      <ion-icon name="list-outline"></ion-icon>
-    </ion-button>
+    <button type="button" title="Change List" class="action-btn" slot="end" fill="clear" color="secondary">
+      <ion-icon name="star-outline"></ion-icon>
+    </button>
+    <!-- edit button -->
+    <button type="button" title="Edit" class="action-btn" slot="end" fill="clear" color="primary">
+      <ion-icon name="create-outline"></ion-icon>
+    </button>
+    <!-- delete button -->
+    <button type="button" title="Delete" class="action-btn remove-item" slot="end" fill="clear" color="danger">
+      <ion-icon name="trash-outline"></ion-icon>
+    </button>
   </div>
 </ion-item>

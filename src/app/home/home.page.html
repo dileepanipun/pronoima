@@ -5,7 +5,6 @@
 </ion-header>
 
 <ion-content>
-  <app-grocery-list-item></app-grocery-list-item>
   <div class="page-container">
     <ion-segment [(ngModel)]="selectedFilter">
       <ion-segment-button value="all">
@@ -28,7 +27,8 @@
     <div class="list-container">
       <ion-list class="modern-list">
         @for (item of getFilteredItems(); track item) {
-          <ion-item class="grocery-item" [class.completed]="item.checked">
+          <app-grocery-list-item [item]="item"></app-grocery-list-item>
+          <!-- <ion-item class="grocery-item" [class.completed]="item.checked">
             <div class="item-content">
               <div class="item-main-row">
                 @if (isActionableTab(selectedFilter)) {
@@ -72,7 +72,7 @@
                 </div>
               </div>
             </div>
-          </ion-item>
+          </ion-item> -->
         } @empty {
           <ion-item>
             <ion-label>No items in your grocery list</ion-label>

@@ -1,6 +1,6 @@
 // Flexbox variables
 $flex-display: flex !default;
-$flex-direction-row: row !default; 
+$flex-direction-row: row !default;
 $flex-justify: flex-start !default;
 $flex-align: stretch !default;
 $flex-gap: normal !default;
@@ -25,53 +25,90 @@ $flex-wrap: nowrap !default;
 
 // Grocery list item variables
 $item-padding: 1.5rem;
+$item-content-gap: 1rem;
+$action-btn-size: 52px;
 
 // grocery list item component styles
-.grocery-item {
-  background-color: #f2f2f210;
-  padding: $item-padding;
-  @include display-flexbox($direction: row, $justify: flex-start, $align: center, $gap: 1rem);
+ion-item.grocery-item {
+  --background: #f2f2f210;
+  --padding-start: #{$item-padding};
+  --padding-end: #{$item-padding};
+  --padding-top: #{$item-padding};
+  --padding-bottom: #{$item-padding};
+  --inner-padding-end: 0;
+  --inner-border-width: 0;
+
+  &::part(native) {
+    align-items: center;
+  }
 
   // item status
   .item-status {
-    @include display-flexbox($direction: row, $justify: flex-start, $align: center);
+    margin-right: #{$item-content-gap};
 
     .action-btn {
-      @include display-flexbox($direction: row, $justify: center, $align: center);
-      padding: .8rem;
-      background-color: #f2f2f210;
+      background-color: var(--background);
       border-radius: 50%;
-      width: 52px;
-      height: 52px;
-
-      .checkbox-input {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
-      }
-
-      .checkbox-label {
-        @include display-flexbox($direction: row, $justify: center, $align: center);
-      } 
-
+      width: #{$action-btn-size};
+      height: #{$action-btn-size};
+      overflow: hidden;
       
+      .checkbox-input {
+        opacity: 0;
+        position: absolute;
+      }
+      
+      .checkbox-label {
+        width: #{$action-btn-size};
+        height: #{$action-btn-size};
+        @include display-flexbox($direction: row, $justify: center, $align: center);
+        
+        ion-icon {
+          font-size: 1.5rem;
+          color: #f2f2f2;
+        }
+      }
     }
   }
 
-  ion-label {
-    &.completed {
-      text-decoration: line-through;
-      color: var(--ion-color-medium);
+  // item content
+  .item-content {
+    flex: 1;
+
+    // item name
+    .item-name {
+      font-size: 1.2rem;
+      margin-bottom: 0.4rem;
+    }
+
+    // item info
+    .item-info {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+
+      ion-label {
+        color: #f2f2f280;
+        font-size: 1rem;
+      }
     }
   }
 
-  ion-button {
-    margin: 0;
+  // item actions
+  .item-actions {
+    @include display-flexbox($direction: row, $justify: flex-end, $align: center, $gap: .3rem);
+
+    button.action-btn {
+      background-color: #f2f2f210;
+
+      width: #{$action-btn-size};
+      height: #{$action-btn-size};
+      border-radius: 50%;
+
+      ion-icon {
+        font-size: 1.3rem;
+        color: #f2f2f2;
+      }
+    }
   }
 }
