@@ -7,7 +7,7 @@ import { LucideAngularModule } from 'lucide-angular';
   templateUrl: 'app.component.html',
   standalone: true,
   imports: [
-    IonApp, 
+    IonApp,
     IonRouterOutlet,
     LucideAngularModule
   ],

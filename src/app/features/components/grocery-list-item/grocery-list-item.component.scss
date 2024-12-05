@@ -38,6 +38,8 @@ ion-item.grocery-item {
   --inner-padding-end: 0;
   --inner-border-width: 0;
 
+  margin-bottom: 2px;
+
   &::part(native) {
     align-items: center;
   }

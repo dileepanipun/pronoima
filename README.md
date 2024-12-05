@@ -9,6 +9,8 @@ This is an Ionic Angular application that provides a mobile-first user experienc
 [![Angular](https://img.shields.io/badge/angular-%5E13.0.0-red)](https://angular.io)
 [![npm version](https://img.shields.io/npm/v/@pronoima/ionic.svg)](https://www.npmjs.com/package/@pronoima/ionic)
 
+## Project Activity
+![Repobeats analytics image](https://repobeats.axiom.co/api/embed/db39c7965eec0a8f6c75c656f2170d2051f529aa.svg "Repobeats analytics image")
 
 ## Prerequisites
 - Node.js (v14.x or higher)
@@ -37,14 +39,17 @@ Navigate to `http://localhost:8100/` in your browser. The application will autom
 
 ## Project Structure
 The project structure is organized as follows:
+
+```
 src/
-├── app/ # Main application folder
-│ ├── app.component. # Root component
-│ ├── app.module.ts # Root module
-│ └── pages/ # Application pages
-├── assets/ # Static assets
-├── theme/ # Global SCSS files
-└── environments/ # Environment configurations
+├── app/                   # Main application folder
+│   ├── app.component.ts   # Root component
+│   ├── app.module.ts      # Root module
+│   └── pages/             # Application pages
+├── assets/                # Static assets
+├── theme/                 # Global SCSS files
+└── environments/          # Environment configurations
+```
 
 
 ## Building for Production
