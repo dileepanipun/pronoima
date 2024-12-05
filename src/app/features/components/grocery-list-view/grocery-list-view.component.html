@@ -1,4 +1,4 @@
-<ion-list>
+<ion-list [inset]="true" lines="full" class="ion-no-padding">
   @for (item of listItems; track item) {
     <app-grocery-list-item [item]="item"></app-grocery-list-item>
   }
