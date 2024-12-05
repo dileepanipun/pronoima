@@ -42,13 +42,13 @@ The project structure is organized as follows:
 
 ```
 src/
-├── app/ # Main application folder
-│ ├── app.component. # Root component
-│ ├── app.module.ts # Root module
-│ └── pages/ # Application pages
-├── assets/ # Static assets
-├── theme/ # Global SCSS files
-└── environments/ # Environment configurations
+├── app/                   # Main application folder
+│   ├── app.component.ts   # Root component
+│   ├── app.module.ts      # Root module
+│   └── pages/             # Application pages
+├── assets/                # Static assets
+├── theme/                 # Global SCSS files
+└── environments/          # Environment configurations
 ```
 
 
