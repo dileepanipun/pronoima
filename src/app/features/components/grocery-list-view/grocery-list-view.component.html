@@ -1,3 +1,5 @@
-<p>
-  grocery-list-view works!
-</p>
+<ion-list>
+  @for (item of listItems; track item) {
+    <app-grocery-list-item [item]="item"></app-grocery-list-item>
+  }
+</ion-list>

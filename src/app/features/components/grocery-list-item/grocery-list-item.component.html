@@ -4,35 +4,44 @@
   <div class="item-status">
     <div class="action-btn checkbox">
       <ion-label class="checkbox-label">
-        <ion-icon name="checkmark-sharp"></ion-icon>
+        <i-lucide [name]="checkIcon" size="24"></i-lucide>
       </ion-label>
     </div>
   </div>
   <!-- item content -->
   <div class="item-content">
     <!-- item name -->
-    <ion-label class="item-name">Whole Milk</ion-label>
+    <ion-label class="item-name">{{ item.title }}</ion-label>
     <!-- item info -->
     <div class="item-info">
       <!-- item price -->
-      <ion-label>$23.00</ion-label>
+      <ion-label>$ {{ item.estimatedCost.toFixed(2) }}</ion-label>
+      <!-- item separator -->
+      <div class="item-separator"></div>
       <!-- item quantity -->
-      <ion-label>One Gallon</ion-label>
+      <ion-label>{{ item.amount }}</ion-label>
     </div>
   </div>
   <!-- item actions -->
+  @if (isEditeModeEnabled) {
   <div class="item-actions">
     <!-- change list button -->
-    <button type="button" title="Change List" class="action-btn" slot="end" fill="clear" color="secondary">
-      <ion-icon name="star-outline"></ion-icon>
+    <button type="button" title="Change List" class="action-btn" slot="end">
+      <i-lucide [name]="starIcon" size="20"></i-lucide>
     </button>
     <!-- edit button -->
-    <button type="button" title="Edit" class="action-btn" slot="end" fill="clear" color="primary">
-      <ion-icon name="create-outline"></ion-icon>
+    <button type="button" title="Edit" class="action-btn" slot="end">
+      <i-lucide [name]="editIcon" size="20"></i-lucide>
     </button>
     <!-- delete button -->
-    <button type="button" title="Delete" class="action-btn remove-item" slot="end" fill="clear" color="danger">
-      <ion-icon name="trash-outline"></ion-icon>
+    <button
+      type="button"
+      title="Delete"
+      class="action-btn remove-item"
+      slot="end"
+    >
+      <i-lucide [name]="trashIcon" size="20"></i-lucide>
     </button>
   </div>
+  }
 </ion-item>

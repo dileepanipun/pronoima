@@ -52,19 +52,22 @@ ion-item.grocery-item {
       width: #{$action-btn-size};
       height: #{$action-btn-size};
       overflow: hidden;
-      
+
       .checkbox-input {
         opacity: 0;
         position: absolute;
       }
-      
+
       .checkbox-label {
         width: #{$action-btn-size};
         height: #{$action-btn-size};
-        @include display-flexbox($direction: row, $justify: center, $align: center);
-        
-        ion-icon {
-          font-size: 1.5rem;
+        @include display-flexbox(
+          $direction: row,
+          $justify: center,
+          $align: center
+        );
+
+        i-lucide {
           color: #f2f2f2;
         }
       }
@@ -83,9 +86,14 @@ ion-item.grocery-item {
 
     // item info
     .item-info {
-      display: flex;
-      flex-direction: row;
-      gap: 1rem;
+      @include display-flexbox($direction: row, $justify: flex-start, $align: center, $gap: .6rem);
+
+      // item separator
+      .item-separator {
+        height: 16px;
+        width: 2px;
+        background-color: #f2f2f280;
+      }
 
       ion-label {
         color: #f2f2f280;
@@ -96,17 +104,26 @@ ion-item.grocery-item {
 
   // item actions
   .item-actions {
-    @include display-flexbox($direction: row, $justify: flex-end, $align: center, $gap: .3rem);
+    @include display-flexbox(
+      $direction: row,
+      $justify: flex-end,
+      $align: center,
+      $gap: 0.3rem
+    );
 
+    // action button
     button.action-btn {
       background-color: #f2f2f210;
-
       width: #{$action-btn-size};
       height: #{$action-btn-size};
       border-radius: 50%;
+      @include display-flexbox(
+        $direction: row,
+        $justify: center,
+        $align: center
+      );
 
-      ion-icon {
-        font-size: 1.3rem;
+      i-lucide {
         color: #f2f2f2;
       }
     }
